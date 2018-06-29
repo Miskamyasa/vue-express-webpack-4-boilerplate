@@ -1,0 +1,16 @@
+{
+    "root": true,
+    "parser": "babel-eslint",
+    "env": {
+      "node": true,
+      "es6": true,
+      "jest": true
+    },
+    "extends": "airbnb-base",
+    "plugins": ["eslint-plugin-import", "eslint-plugin-node", "eslint-plugin-promise"],
+    "rules": {
+        "indent": [ 2, 4, { "SwitchCase": 1 } ],
+        "quotes": [ "error", "double" ],
+        "max-len": [ "error", { "code": 120 } ]
+    }
+}
