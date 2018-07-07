@@ -5,18 +5,16 @@ const Dotenv = require("dotenv-webpack");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const LiveReloadPlugin = require("webpack-livereload-plugin");
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const autoprefixer = require("autoprefixer");
-
-const bptr = require("babel-plugin-transform-runtime");
-const bptcp = require("babel-plugin-transform-class-properties");
 
 const SRC_DIR = path.resolve(__dirname, "src");
 const DIST = path.resolve(__dirname, "public");
 
 const entries = [
     {
-        name: "index",
-        filename: `${SRC_DIR}/index.js`,
+        name: "main",
+        filename: `${SRC_DIR}/main.js`,
     },
 ];
 
@@ -45,21 +43,23 @@ module.exports = {
         modules: ["node_modules", path.resolve(__dirname, "node_modules")].concat(
             process.env.NODE_PATH.split(path.delimiter).filter(Boolean),
         ),
-        extensions: [".js", ".json", ".jsx"],
+        alias: {
+            vue$: "vue/dist/vue.js",
+        },
+        extensions: [".js", ".json", ".vue"],
     },
 
     module: {
         rules: [
             {
-                test: /\.(js|jsx)$/,
+                test: /\.vue$/,
+                loader: require.resolve("vue-loader"),
+            },
+            {
+                test: /\.js$/,
                 exclude: /(node_modules)/,
-                loader: "babel-loader",
-                options: {
-                    cacheDirectory: true,
-                    babelrc: false,
-                    presets: ["babel-preset-react", "babel-preset-env", "babel-preset-stage-2"],
-                    plugins: [bptr, bptcp],
-                },
+                loader: require.resolve("babel-loader"),
+                options: { cacheDirectory: true },
             },
             {
                 test: /\.css$/,
@@ -92,7 +92,7 @@ module.exports = {
                 ],
             },
             {
-                test: /\.(bmp|gif|jpe?g|png|svg})$/,
+                test: /\.(bmp|gif|jpe?g|png|svg)$/,
                 loader: require.resolve("file-loader"),
                 options: {
                     limit: 10000,
@@ -128,19 +128,20 @@ module.exports = {
         new webpack.LoaderOptionsPlugin({ debug: true }),
         new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /ru/),
         new Dotenv({
-            path: path.resolve(__dirname, ".env.react-app"),
+            path: path.resolve(__dirname, ".env.vue-app"),
             systemvars: true,
         }),
         new CleanWebpackPlugin(DIST),
         ...entries.map(
             entry => new HtmlWebpackPlugin({
-                title: "React, Express, Webpack 4, Boilerplate",
+                title: "Vue, Express, Webpack 4, Boilerplate",
                 favicon: "src/assets/favicons/favicon.ico",
                 template: `${SRC_DIR}/template.html`,
                 filename: `${entry.name}.html`,
                 chunks: ["vendor", entry.name],
             }),
         ),
+        new VueLoaderPlugin(),
         new LiveReloadPlugin(),
     ],
 };

@@ -10,7 +10,7 @@
     "plugins": ["eslint-plugin-import", "eslint-plugin-node", "eslint-plugin-promise"],
     "rules": {
         "indent": [ 2, 4, { "SwitchCase": 1 } ],
-        "quotes": [ "error", "double" ],
+        "quotes": [ "error", "single" ],
         "max-len": [ "error", { "code": 120 } ]
     }
 }

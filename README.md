@@ -1,4 +1,8 @@
-## React, Express, Webpack4 as frontend bundler
+## Vue, Express, Webpack4 as frontend bundler
+
+Complete rewrite:
+webpack 3 -> 4
+sass -> css/postcss
 
 ### Dev mode
 ```

@@ -6,24 +6,5 @@
         "browser": true,
         "jest": true
     },
-    "extends": "airbnb-base",
-    "plugins": ["eslint-plugin-react"],
-    "rules": {
-        "indent": [2, 4, { "SwitchCase": 1 }],
-        "operator-linebreak": ["error", "before", { "overrides": { "&&": "after" } }],
-        "max-len": ["error", { "code": 120 }],
-        "quotes": ["error", "double"],
-        "jsx-quotes": ["error", "prefer-double"],
-        "react/jsx-indent": [2, 4],
-        "react/jsx-indent-props": [2, 4],
-        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-        "react/jsx-closing-bracket-location": [1, { "nonEmpty": "after-props", "selfClosing": "after-props" }],
-        "react/jsx-max-props-per-line": [1, { "maximum": 1 }],
-        "react/jsx-uses-react": "error",
-        "react/jsx-uses-vars": "error",
-        "import/extensions": [".js", ".jsx"]
-    },
-    "settings": {
-        "import/resolver": "babel-module"
-    }
+    "extends": "airbnb-base"
 }
