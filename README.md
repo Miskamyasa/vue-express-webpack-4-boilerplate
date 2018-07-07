@@ -24,11 +24,8 @@ sass -> css/postcss
     "babel-eslint": "^8.2.5",
     "babel-jest": "^23.2.0",
     "babel-loader": "^7.1.4",
-    "babel-plugin-module-resolver": "^3.1.1",
-    "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "clean-webpack-plugin": "^0.1.19",
     "cookie-parser": "~1.4.3",
@@ -38,11 +35,9 @@ sass -> css/postcss
     "dotenv-webpack": "^1.5.7",
     "eslint": "^5.0.1",
     "eslint-config-airbnb-base": "^13.0.0",
-    "eslint-import-resolver-babel-module": "^4.0.0",
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-promise": "^3.8.0",
-    "eslint-plugin-react": "^7.10.0",
     "express": "~4.16.0",
     "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.2.0",
@@ -51,13 +46,13 @@ sass -> css/postcss
     "morgan": "~1.9.0",
     "postcss-flexbugs-fixes": "^3.3.1",
     "postcss-loader": "^2.1.5",
-    "prop-types": "^15.6.2",
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1",
     "style-loader": "^0.21.0",
+    "vue": "^2.5.16",
+    "vue-loader": "^15.2.4",
+    "vue-template-compiler": "^2.5.16",
     "webpack": "^4.14.0",
-    "webpack-cli": "^3.0.8",
-    "webpack-livereload-plugin": "^2.1.1"
+    "webpack-livereload-plugin": "^2.1.1",
+    "webpack-cli": "^3.0.8"
 ```
 
 ***
